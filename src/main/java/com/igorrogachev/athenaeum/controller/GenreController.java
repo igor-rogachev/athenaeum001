@@ -45,7 +45,17 @@ public class GenreController {
                     Model model
     )
     {
-        genreRepository.save(inputGenre);
+        try {
+            genreRepository.save(inputGenre);
+        }
+        // org.postgresql.util.PSQLException ???????????? Нет такой эксепции, не нешел, чтобы добавить
+        catch (Exception e) {
+            String err = e.getMessage();
+            if (e.getCause() != null) {
+                err = err + " # e.getCause() # " + e.getCause().getMessage();
+            }
+            model.addAttribute("someException", err);
+        }
 
         // ну и отобразим, что получилось
         createGenresList(model);

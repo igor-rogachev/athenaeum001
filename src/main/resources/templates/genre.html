@@ -6,6 +6,10 @@
 </head>
 <body>
 
+    <div th:if="${someException != null}">
+        <p th:text="'Произошла ошибка: ' + ${someException} + '!'" />
+    </div>
+
     <div>Новый жанр</div>
     <form action="#" th:action="@{/genre/add}" th:object="${inputGenre}" method="post">
         <p>Наименование жанра: <input type="text" th:field="*{name}" /></p>

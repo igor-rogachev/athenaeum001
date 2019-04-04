@@ -1,17 +1,18 @@
 package com.igorrogachev.athenaeum.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+// @Table
+@Table(uniqueConstraints={@UniqueConstraint(columnNames={"name"})})
 public class Genre {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
 
+    // @Column(unique = true)
+    @Column(nullable=false)
     private String name;
 
     public Genre() {
