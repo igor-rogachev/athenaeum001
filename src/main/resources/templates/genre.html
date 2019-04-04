@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Genre CRUD and LIST</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <div>Список жанров</div>
+
+    <p th:text="${g_str}" />
+
+    <table>
+        <thead>
+        <tr>
+            <th> ID </th>
+            <th> Наименование жанра </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${genresList.isEmpty()}">
+            <td colspan="2"> Нет жанров для отображения </td>
+        </tr>
+        <tr th:each="theGenre : ${genresList}">
+            <td><span th:text="${theGenre.id}"> ID </span></td>
+            <td><span th:text="${theGenre.name}"> Наименование </span></td>
+        </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

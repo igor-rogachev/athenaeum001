@@ -1,2 +1,16 @@
 server:
   port: 8009
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5434/test_athenaeum
+    platform: POSTGRESQL
+    username: igor
+    password: igor
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+      dialect: org.hibernate.dialect.PostgreSQL9Dialect
+      show_sql: true
+    properties.hibernate.temp.use_jdbc_metadata_defaults: false

@@ -19,6 +19,7 @@ public class GreetingController {
         return "greeting";
     }
 
+    /*
     @GetMapping
     public String main(
             @RequestParam(name="someMessage", required=false, defaultValue="Bad boy +++ # Редиска +++")
@@ -29,4 +30,5 @@ public class GreetingController {
         model.addAttribute("someMessage", someMessage);
         return "main";
     }
+    */
 }
