@@ -5,6 +5,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+
+    <div>Новый жанр</div>
+    <form action="#" th:action="@{/genre/add}" th:object="${inputGenre}" method="post">
+        <p>Наименование жанра: <input type="text" th:field="*{name}" /></p>
+        <p><input type="submit" value="Ввести" /> <input type="reset" value="Отказаться" /></p>
+    </form>
+
     <div>Список жанров</div>
 
     <table>
