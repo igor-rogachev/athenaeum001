@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book CRUD and LIST</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<!-- Обработка ошибок -->
+<div th:if="${someException != null}">
+    <p th:text="${someException}" />
+</div>
+
+<div>Новая книга</div>
+<form action="#" th:action="@{/book/add}" th:object="${inputBook}" method="post">
+    <p>Заглавие: <input type="text" th:field="*{title}" /></p>
+    <p>Год издание: <input type="date" th:field="*{year}" /></p>
+    <p><input type="submit" value="Ввести" /> <input type="reset" value="Отказаться" /></p>
+</form>
+
+<div>Список книг</div>
+
+<table>
+    <thead>
+    <tr>
+        <th> ID </th>
+        <th> Заглавие </th>
+        <th> Год издание </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${booksList.isEmpty()}">
+        <td colspan="2"> Нет книг для отображения </td>
+    </tr>
+    <tr th:each="theBook : ${booksList}">
+        <td><span th:text="${theBook.id}"> ID </span></td>
+        <td><span th:text="${theBook.title}"> Заглавие </span></td>
+        <td><span th:text="${theBook.year}"> Год издания </span></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

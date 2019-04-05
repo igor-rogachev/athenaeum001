@@ -1,5 +1,7 @@
 package com.igorrogachev.athenaeum.domain;
 
+        import org.springframework.format.annotation.DateTimeFormat;
+
         import javax.persistence.*;
         import javax.validation.constraints.NotEmpty;
         import javax.validation.constraints.NotNull;
@@ -17,6 +19,8 @@ public class Book {
     private String title;
 
     @NotNull(message = "Year may not be null")
+    // @DateTimeFormat(pattern = "dd.mm.yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date year;
 
     public Book() {

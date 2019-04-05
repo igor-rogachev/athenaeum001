@@ -6,8 +6,9 @@
 </head>
 <body>
 
+    <!-- Обработка ошибок -->
     <div th:if="${someException != null}">
-        <p th:text="'Произошла ошибка: ' + ${someException} + '!'" />
+        <p th:text="${someException}" />
     </div>
 
     <div>Новый жанр</div>

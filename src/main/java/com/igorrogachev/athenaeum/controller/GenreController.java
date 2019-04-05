@@ -3,6 +3,10 @@ package com.igorrogachev.athenaeum.controller;
 
 import com.igorrogachev.athenaeum.domain.Genre;
 import com.igorrogachev.athenaeum.repository.GenreRepository;
+import com.igorrogachev.athenaeum.service.constants.ErrorPrefixConstants;
+import com.igorrogachev.athenaeum.service.constants.MapInOutConstants;
+import com.igorrogachev.athenaeum.service.constants.ModelAttributeNameConstants;
+import com.igorrogachev.athenaeum.service.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,7 +45,7 @@ public class GenreController {
     // Списано отсюда https://spring.io/guides/gs/handling-form-submission/
     @PostMapping(MapInOutConstants.ADD_IN_MAP) // Add by Post Requests (form)
     public String addNewGenreByForm(
-            @ModelAttribute("inputGenre") Genre inputGenre,
+            @ModelAttribute(ModelAttributeNameConstants.INPUT_GENRE) Genre inputGenre,
                     Model model
     )
     {
@@ -53,17 +57,14 @@ public class GenreController {
         return MapInOutConstants.GENRE_OUT_MAP;
     }
 
-    private void saveGenre(@ModelAttribute("inputGenre") Genre inputGenre, Model model) {
+    private void saveGenre(@ModelAttribute(ModelAttributeNameConstants.INPUT_GENRE) Genre inputGenre, Model model) {
         try {
             genreRepository.save(inputGenre);
         }
         // org.postgresql.util.PSQLException ???????????? Нет такой эксепции, не нешел, чтобы добавить
         catch (Exception e) {
-            String err = e.getMessage();
-            if (e.getCause() != null) {
-                err = err + " # e.getCause() # " + e.getCause().getMessage();
-            }
-            model.addAttribute("someException", err);
+            String errDescriptionPrefix = ErrorPrefixConstants.ПРОИЗОШЛА_ОШИБКА_ПРИ_ДОБАВЛЕНИИ_НОВОГО_ЖАНРА;
+            Utils.exceptionProcessing(model, e, errDescriptionPrefix);
         }
     }
 
@@ -72,9 +73,9 @@ public class GenreController {
         Iterable<Genre> genres = genreRepository.findAll();
         List<Genre> genresList = new ArrayList();
         genres.forEach(genresList::add);
-        model.addAttribute("genresList", genresList);
+        model.addAttribute(ModelAttributeNameConstants.GENRES_LIST, genresList);
         // Добавим пустой ЖАНР для ввода
-        model.addAttribute("inputGenre", new Genre());
+        model.addAttribute(ModelAttributeNameConstants.INPUT_GENRE, new Genre());
     }
 
     @GetMapping(path= MapInOutConstants.ALL_IN_MAP)

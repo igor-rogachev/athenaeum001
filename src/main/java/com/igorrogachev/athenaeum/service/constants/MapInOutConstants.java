@@ -1,4 +1,4 @@
-package com.igorrogachev.athenaeum.controller;
+package com.igorrogachev.athenaeum.service.constants;
 
 public class MapInOutConstants {
     public static final String GENRE_OUT_MAP = "genre";
