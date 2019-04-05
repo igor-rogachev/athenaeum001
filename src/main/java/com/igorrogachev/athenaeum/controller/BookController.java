@@ -2,7 +2,9 @@ package com.igorrogachev.athenaeum.controller;
 
 
 import com.igorrogachev.athenaeum.domain.Book;
+import com.igorrogachev.athenaeum.domain.Genre;
 import com.igorrogachev.athenaeum.repository.BookRepository;
+import com.igorrogachev.athenaeum.repository.GenreRepository;
 import com.igorrogachev.athenaeum.service.constants.ErrorPrefixConstants;
 import com.igorrogachev.athenaeum.service.constants.MapInOutConstants;
 import com.igorrogachev.athenaeum.service.constants.ModelAttributeNameConstants;
@@ -22,15 +24,18 @@ public class BookController {
 
     @Autowired
     private BookRepository bookRepository;
+    @Autowired
+    private GenreRepository genreRepository;
 
     @GetMapping(MapInOutConstants.ADD_IN_MAP)
     public String addNewBook(
                     @RequestParam String title,
                     @RequestParam Date year,
+                    @RequestParam Genre genre,
                     Model model
     )
     {
-        Book book = new Book(title, year);
+        Book book = new Book(title, year, genre);
         bookRepository.save(book);
 
         createBooksList(model);
@@ -62,6 +67,9 @@ public class BookController {
 
     private void saveBook(@ModelAttribute(ModelAttributeNameConstants.INPUT_BOOK) Book inputBook, Model model) {
         try {
+            Integer genre_id = Integer.decode(inputBook.getTempGenreIdInput());
+            Genre g = genreRepository.findById(genre_id).get();
+            inputBook.setGenre(g);
             bookRepository.save(inputBook);
         }
         catch (Exception e) {

@@ -16,6 +16,7 @@
 <form action="#" th:action="@{/book/add}" th:object="${inputBook}" method="post">
     <p>Заглавие: <input type="text" th:field="*{title}" /></p>
     <p>Год издание: <input type="date" th:field="*{year}" /></p>
+    <p>Жанр: <input type="text" th:field="*{tempGenreIdInput}" /></p>
     <p><input type="submit" value="Ввести" /> <input type="reset" value="Отказаться" /></p>
 </form>
 
@@ -27,6 +28,7 @@
         <th> ID </th>
         <th> Заглавие </th>
         <th> Год издание </th>
+        <th> Жанр </th>
     </tr>
     </thead>
     <tbody>
@@ -37,6 +39,7 @@
         <td><span th:text="${theBook.id}"> ID </span></td>
         <td><span th:text="${theBook.title}"> Заглавие </span></td>
         <td><span th:text="${theBook.year}"> Год издания </span></td>
+        <td><span th:text="${theBook.genre.getName()}"> Жанр </span></td>
     </tr>
     </tbody>
 </table>
