@@ -12,7 +12,7 @@
     </div>
 
     <div>Новый жанр</div>
-    <form action="#" th:action="@{/genre/add}" th:object="${inputGenre}" method="post">
+    <form action="#" th:action="@{/genre/add}" th:object="${inputGenreTrans}" method="post">
         <p>Наименование жанра: <input type="text" th:field="*{name}" /></p>
         <p><input type="submit" value="Ввести" /> <input type="reset" value="Отказаться" /></p>
     </form>
@@ -27,12 +27,12 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:if="${genresList.isEmpty()}">
+        <tr th:if="${genresTransList.isEmpty()}">
             <td colspan="2"> Нет жанров для отображения </td>
         </tr>
-        <tr th:each="theGenre : ${genresList}">
-            <td><span th:text="${theGenre.id}"> ID </span></td>
-            <td><span th:text="${theGenre.name}"> Наименование </span></td>
+        <tr th:each="theGenreTrans : ${genresTransList}">
+            <td><span th:text="${theGenreTrans.id}"> ID </span></td>
+            <td><span th:text="${theGenreTrans.name}"> Наименование </span></td>
         </tr>
         </tbody>
     </table>

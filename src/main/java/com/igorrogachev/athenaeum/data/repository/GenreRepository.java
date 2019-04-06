@@ -1,6 +1,6 @@
-package com.igorrogachev.athenaeum.repository;
+package com.igorrogachev.athenaeum.data.repository;
 
-import com.igorrogachev.athenaeum.domain.Genre;
+import com.igorrogachev.athenaeum.data.entity.Genre;
 import org.springframework.data.repository.CrudRepository;
 
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository

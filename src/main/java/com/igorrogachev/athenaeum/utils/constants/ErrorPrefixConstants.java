@@ -1,4 +1,4 @@
-package com.igorrogachev.athenaeum.service.constants;
+package com.igorrogachev.athenaeum.utils.constants;
 
 public class ErrorPrefixConstants {
     public static final String ПРОИЗОШЛА_ОШИБКА_ПРИ_ДОБАВЛЕНИИ_НОВОГО_ЖАНРА = "Произошла ошибка при добавлении нового ЖАНРА: ";

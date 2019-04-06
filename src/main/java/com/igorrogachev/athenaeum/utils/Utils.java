@@ -1,6 +1,6 @@
-package com.igorrogachev.athenaeum.service;
+package com.igorrogachev.athenaeum.utils;
 
-import com.igorrogachev.athenaeum.service.constants.ModelAttributeNameConstants;
+import com.igorrogachev.athenaeum.utils.constants.ModelAttributeNameConstants;
 import org.springframework.ui.Model;
 
 public class Utils {

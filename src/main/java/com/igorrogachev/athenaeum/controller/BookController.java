@@ -1,14 +1,14 @@
 package com.igorrogachev.athenaeum.controller;
 
 
-import com.igorrogachev.athenaeum.domain.Book;
-import com.igorrogachev.athenaeum.domain.Genre;
-import com.igorrogachev.athenaeum.repository.BookRepository;
-import com.igorrogachev.athenaeum.repository.GenreRepository;
-import com.igorrogachev.athenaeum.service.constants.ErrorPrefixConstants;
-import com.igorrogachev.athenaeum.service.constants.MapInOutConstants;
-import com.igorrogachev.athenaeum.service.constants.ModelAttributeNameConstants;
-import com.igorrogachev.athenaeum.service.Utils;
+import com.igorrogachev.athenaeum.data.entity.Book;
+import com.igorrogachev.athenaeum.data.entity.Genre;
+import com.igorrogachev.athenaeum.data.repository.BookRepository;
+import com.igorrogachev.athenaeum.data.repository.GenreRepository;
+import com.igorrogachev.athenaeum.utils.constants.ErrorPrefixConstants;
+import com.igorrogachev.athenaeum.utils.constants.MapInOutConstants;
+import com.igorrogachev.athenaeum.utils.constants.ModelAttributeNameConstants;
+import com.igorrogachev.athenaeum.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

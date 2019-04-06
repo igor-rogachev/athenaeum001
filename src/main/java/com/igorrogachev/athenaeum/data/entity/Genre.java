@@ -1,4 +1,4 @@
-package com.igorrogachev.athenaeum.domain;
+package com.igorrogachev.athenaeum.data.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;

@@ -1,7 +1,5 @@
-package com.igorrogachev.athenaeum.domain;
+package com.igorrogachev.athenaeum.data.entity;
 
-        import com.igorrogachev.athenaeum.repository.GenreRepository;
-        import org.springframework.data.repository.NoRepositoryBean;
         import org.springframework.format.annotation.DateTimeFormat;
 
         import javax.persistence.*;
