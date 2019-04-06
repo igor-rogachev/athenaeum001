@@ -3,7 +3,8 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5434/test_athenaeum
+#    url: jdbc:postgresql://localhost:5434/test_athenaeum
+    url: jdbc:postgresql://localhost/test_athenaeum
     platform: POSTGRESQL
     username: igor
     password: igor
