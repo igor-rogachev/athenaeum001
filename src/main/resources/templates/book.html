@@ -13,10 +13,10 @@
 </div>
 
 <div>Новая книга</div>
-<form action="#" th:action="@{/book/add}" th:object="${inputBook}" method="post">
+<form action="#" th:action="@{/book/add}" th:object="${inputBookTrans}" method="post">
     <p>Заглавие: <input type="text" th:field="*{title}" /></p>
     <p>Год издание: <input type="date" th:field="*{year}" /></p>
-    <p>Жанр: <input type="text" th:field="*{tempGenreIdInput}" /></p>
+    <p>Жанр: <input type="text" th:field="*{genreIntIn}" /></p>
     <p><input type="submit" value="Ввести" /> <input type="reset" value="Отказаться" /></p>
 </form>
 
@@ -31,15 +31,17 @@
         <th> Жанр </th>
     </tr>
     </thead>
-    <tbody>
-    <tr th:if="${booksList.isEmpty()}">
+    <!--/*@thymesVar id="theBookTrans" type="com.igorrogachev.athenaeum.business.domain.BookTrans"*/-->
+    <!--/*@thymesVar id="booksTransList" type="java.util.List"*/-->
+.    <tbody>
+    <tr th:if="${booksTransList.isEmpty()}">
         <td colspan="2"> Нет книг для отображения </td>
     </tr>
-    <tr th:each="theBook : ${booksList}">
-        <td><span th:text="${theBook.id}"> ID </span></td>
-        <td><span th:text="${theBook.title}"> Заглавие </span></td>
-        <td><span th:text="${theBook.year}"> Год издания </span></td>
-        <td><span th:text="${theBook.genre.getName()}"> Жанр </span></td>
+    <tr th:each="theBookTrans : ${booksTransList}">
+        <td><span th:text="${theBookTrans.id}"> ID </span></td>
+        <td><span th:text="${theBookTrans.title}"> Заглавие </span></td>
+        <td><span th:text="${theBookTrans.yearStringInOut}"> Год издания </span></td>
+        <td><span th:text="${theBookTrans.genreStringOut}"> Жанр </span></td>
     </tr>
     </tbody>
 </table>

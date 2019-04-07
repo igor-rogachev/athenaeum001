@@ -44,15 +44,15 @@ public class GenreService {
     public void putGenresListToModel(Model model) {
         Iterable<Genre> genres = genreDao.findAll();
         List<Genre> genresList = new ArrayList();
-        List<GenreTrans> genresTransList = new ArrayList();
         genres.forEach(genresList::add);
+        List<GenreTrans> genresTransList = new ArrayList();
         // пока тупо через for, переделать через лябда или через потоки
         for (Genre g: genres) {
             genresTransList.add(new GenreTrans(g.getId(), g.getName()));
         }
         model.addAttribute(ModelAttributeNameConstants.GENRES_TRANS_LIST, genresTransList);
         // Добавим пустой ЖАНР для ввода
-        model.addAttribute(ModelAttributeNameConstants.INPUT_GENRE, new GenreTrans());
+        model.addAttribute(ModelAttributeNameConstants.INPUT_GENRE_TRANS, new GenreTrans());
     }
 
 }

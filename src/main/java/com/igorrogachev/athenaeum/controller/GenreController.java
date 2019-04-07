@@ -1,6 +1,5 @@
 package com.igorrogachev.athenaeum.controller;
 
-
 import com.igorrogachev.athenaeum.businessDomain.GenreTrans;
 import com.igorrogachev.athenaeum.service.GenreService;
 import com.igorrogachev.athenaeum.utils.constants.MapInOutConstants;
@@ -33,7 +32,7 @@ public class GenreController {
     // Списано отсюда https://spring.io/guides/gs/handling-form-submission/
     @PostMapping(MapInOutConstants.ADD_IN_MAP)
     public String addNewGenreByForm(
-            @ModelAttribute(ModelAttributeNameConstants.INPUT_GENRE) GenreTrans inputGenre,
+            @ModelAttribute(ModelAttributeNameConstants.INPUT_GENRE_TRANS) GenreTrans inputGenre,
                     Model model
     )
     {

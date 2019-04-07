@@ -29,10 +29,6 @@ public class Book {
     @ManyToOne(fetch = FetchType.EAGER)
     private Genre genre;
 
-    @Transient
-    @NotEmpty(message = ConstrainsErrorConstants.TEMP_GENRE_ID_INPUT_MAY_NOT_BE_EMPTY)
-    private String tempGenreIdInput;
-
     public Book() {
     }
 
@@ -46,25 +42,7 @@ public class Book {
         this.genre = genre;
     }
 
-    public Book(
-            @NotNull(message = ConstrainsErrorConstants.TITLE_MAY_NOT_BE_NULL)
-            @NotEmpty(message = ConstrainsErrorConstants.TITLE_MAY_NOT_BE_EMPTY) String title,
-            @NotNull(message = ConstrainsErrorConstants.YEAR_MAY_NOT_BE_NULL) Date year,
-            @NotEmpty(message = ConstrainsErrorConstants.TEMP_GENRE_ID_INPUT_MAY_NOT_BE_EMPTY) String tempGenreIdInput) {
-        this.title = title;
-        this.year = year;
-        this.tempGenreIdInput = tempGenreIdInput;
-    }
-
-    public String getTempGenreIdInput() {
-        return tempGenreIdInput;
-    }
-
-    public void setTempGenreIdInput(String tempGenreIdInput) {
-        this.tempGenreIdInput = tempGenreIdInput;
-    }
-
-    public String getTitle() {
+   public String getTitle() {
         return title;
     }
 
@@ -83,7 +61,6 @@ public class Book {
     public long getId() {
         return id;
     }
-
 
     public Genre getGenre() {
         return genre;
