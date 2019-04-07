@@ -1,10 +1,10 @@
 package com.igorrogachev.athenaeum.controller;
 
 
-import com.igorrogachev.athenaeum.data.entity.Book;
-import com.igorrogachev.athenaeum.data.entity.Genre;
-import com.igorrogachev.athenaeum.data.repository.BookRepository;
-import com.igorrogachev.athenaeum.data.repository.GenreRepository;
+import com.igorrogachev.athenaeum.entity.Book;
+import com.igorrogachev.athenaeum.entity.Genre;
+import com.igorrogachev.athenaeum.dao.BookDao;
+import com.igorrogachev.athenaeum.dao.GenreDao;
 import com.igorrogachev.athenaeum.utils.constants.ErrorPrefixConstants;
 import com.igorrogachev.athenaeum.utils.constants.MapInOutConstants;
 import com.igorrogachev.athenaeum.utils.constants.ModelAttributeNameConstants;
@@ -23,9 +23,9 @@ import java.util.List;
 public class BookController {
 
     @Autowired
-    private BookRepository bookRepository;
+    private BookDao bookDao;
     @Autowired
-    private GenreRepository genreRepository;
+    private GenreDao genreDao;
 
     @GetMapping(MapInOutConstants.ADD_IN_MAP)
     public String addNewBook(
@@ -36,7 +36,7 @@ public class BookController {
     )
     {
         Book book = new Book(title, year, genre);
-        bookRepository.save(book);
+        bookDao.save(book);
 
         createBooksList(model);
 
@@ -68,18 +68,18 @@ public class BookController {
     private void saveBook(@ModelAttribute(ModelAttributeNameConstants.INPUT_BOOK) Book inputBook, Model model) {
         try {
             Integer genre_id = Integer.decode(inputBook.getTempGenreIdInput());
-            Genre g = genreRepository.findById(genre_id).get();
+            Genre g = genreDao.findById(genre_id).get();
             inputBook.setGenre(g);
-            bookRepository.save(inputBook);
+            bookDao.save(inputBook);
         }
         catch (Exception e) {
-            String errDescriptionPrefix = ErrorPrefixConstants.ПРОИЗОШЛА_ОШИБКА_ПРИ_ДОБАВЛЕНИИ_НОВОЙ_КНИГИ;
+            String errDescriptionPrefix = ErrorPrefixConstants.ADD_NEW_BOOK_ERROR;
             Utils.exceptionProcessing(model, e, errDescriptionPrefix);
         }
     }
 
     private void createBooksList(Model model) {
-        Iterable<Book> books = bookRepository.findAll();
+        Iterable<Book> books = bookDao.findAll();
         List<Book> booksList = new ArrayList();
         books.forEach(booksList::add);
         model.addAttribute(ModelAttributeNameConstants.BOOKS_LIST, booksList);

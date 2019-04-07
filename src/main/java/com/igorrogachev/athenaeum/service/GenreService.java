@@ -1,8 +1,8 @@
-package com.igorrogachev.athenaeum.business.service;
+package com.igorrogachev.athenaeum.service;
 
-import com.igorrogachev.athenaeum.business.domain.GenreTrans;
-import com.igorrogachev.athenaeum.data.entity.Genre;
-import com.igorrogachev.athenaeum.data.repository.GenreRepository;
+import com.igorrogachev.athenaeum.businessDomain.GenreTrans;
+import com.igorrogachev.athenaeum.entity.Genre;
+import com.igorrogachev.athenaeum.dao.GenreDao;
 import com.igorrogachev.athenaeum.utils.Utils;
 import com.igorrogachev.athenaeum.utils.constants.ErrorPrefixConstants;
 import com.igorrogachev.athenaeum.utils.constants.ModelAttributeNameConstants;
@@ -15,15 +15,15 @@ import java.util.List;
 
 @Service
 public class GenreService {
-    private final GenreRepository genreRepository;
+    private final GenreDao genreDao;
 
     @Autowired
-    public GenreService(GenreRepository genreRepository) {
-        this.genreRepository = genreRepository;
+    public GenreService(GenreDao genreDao) {
+        this.genreDao = genreDao;
     }
 
     public GenreTrans getForId(int id) {
-        Genre genre = genreRepository.findById(id).get();
+        Genre genre = genreDao.findById(id).get();
         GenreTrans genreTrans = new GenreTrans(genre.getId(), genre.getName());
         return genreTrans;
     }
@@ -31,18 +31,18 @@ public class GenreService {
     public void save(GenreTrans genreTrans, Model model) {
         Genre genre = new Genre(genreTrans.getName());
         try {
-            genreRepository.save(genre);
+            genreDao.save(genre);
         }
         // org.postgresql.util.PSQLException ???????????? Нет такой эксепции, не нешел, чтобы добавить
         catch (Exception e) {
-            String errDescriptionPrefix = ErrorPrefixConstants.ПРОИЗОШЛА_ОШИБКА_ПРИ_ДОБАВЛЕНИИ_НОВОГО_ЖАНРА;
+            String errDescriptionPrefix = ErrorPrefixConstants.ADD_NEW_GENRE_ERROR;
             Utils.exceptionProcessing(model, e, errDescriptionPrefix);
         }
     }
 
     // рутина создания списка жанров для отображения
     public void putGenresListToModel(Model model) {
-        Iterable<Genre> genres = genreRepository.findAll();
+        Iterable<Genre> genres = genreDao.findAll();
         List<Genre> genresList = new ArrayList();
         List<GenreTrans> genresTransList = new ArrayList();
         genres.forEach(genresList::add);
@@ -54,6 +54,5 @@ public class GenreService {
         // Добавим пустой ЖАНР для ввода
         model.addAttribute(ModelAttributeNameConstants.INPUT_GENRE, new GenreTrans());
     }
-
 
 }

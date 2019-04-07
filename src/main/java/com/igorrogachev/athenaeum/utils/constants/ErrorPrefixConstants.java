@@ -1,6 +1,6 @@
 package com.igorrogachev.athenaeum.utils.constants;
 
 public class ErrorPrefixConstants {
-    public static final String ПРОИЗОШЛА_ОШИБКА_ПРИ_ДОБАВЛЕНИИ_НОВОГО_ЖАНРА = "Произошла ошибка при добавлении нового ЖАНРА: ";
-    public static final String ПРОИЗОШЛА_ОШИБКА_ПРИ_ДОБАВЛЕНИИ_НОВОЙ_КНИГИ = "Произошла ошибка при добавлении новой КНИГИ: ";
+    public static final String ADD_NEW_GENRE_ERROR = "Произошла ошибка при добавлении нового ЖАНРА: ";
+    public static final String ADD_NEW_BOOK_ERROR = "Произошла ошибка при добавлении новой КНИГИ: ";
 }

@@ -1,4 +1,4 @@
-package com.igorrogachev.athenaeum.business.domain;
+package com.igorrogachev.athenaeum.businessDomain;
 
 public class GenreTrans {
     private int id;
