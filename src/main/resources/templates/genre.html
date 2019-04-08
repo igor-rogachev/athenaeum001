@@ -17,6 +17,13 @@
         <p><input type="submit" value="Ввести" /> <input type="reset" value="Отказаться" /></p>
     </form>
 
+    <div>Редактировать жанр</div>
+    <form action="#" th:action="@{/genre/edit}" th:object="${inputGenreTrans}" method="post">
+        <p>ID жанра: <input type="text" th:field="*{id}" /></p>
+        <p>Наименование жанра: <input type="text" th:field="*{name}" /></p>
+        <p><input type="submit" value="Сохранить" /> <input type="reset" value="Отказаться" /></p>
+    </form>
+
     <div>Список жанров</div>
 
     <table>

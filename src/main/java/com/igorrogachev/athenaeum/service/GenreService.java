@@ -29,11 +29,21 @@ public class GenreService {
     }
 
     public void save(GenreTrans genreTrans, Model model) {
-        Genre genre = new Genre(genreTrans.getName());
         try {
+            Genre genre;
+            // проверяем, это добавление нового жанра или редактирование сушествующего
+            if (genreTrans.getId() > 0) {
+                // редактирование сушествующего
+                genre = genreDao.findById(genreTrans.getId()).get();
+                genre.setName(genreTrans.getName());
+            } else {
+                // добавление нового жанра
+                genre = new Genre(genreTrans.getName());
+            }
             genreDao.save(genre);
         }
         // org.postgresql.util.PSQLException ???????????? Нет такой эксепции, не нешел, чтобы добавить
+        // потому, пока берем общий тип
         catch (Exception e) {
             String errDescriptionPrefix = ErrorPrefixConstants.ADD_NEW_GENRE_ERROR;
             Utils.exceptionProcessing(model, e, errDescriptionPrefix);

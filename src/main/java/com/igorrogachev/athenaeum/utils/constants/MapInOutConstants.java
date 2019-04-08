@@ -8,5 +8,7 @@ public class MapInOutConstants {
     public static final String BOOK_OUT_MAP = "book";
     // действия внутри форм
     public static final String ADD_IN_MAP = "/add";
+    public static final String EDIT_IN_MAP = "/edit";
     public static final String ALL_IN_MAP = "/all";
+
 }

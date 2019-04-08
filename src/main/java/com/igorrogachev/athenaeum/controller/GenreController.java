@@ -23,22 +23,36 @@ public class GenreController {
             )
     {
         GenreTrans genre = new GenreTrans(name);
-        service.save(genre, model);
-        service.putGenresListToModel(model);
-        return MapInOutConstants.GENRE_OUT_MAP;
+        return save(genre, model);
     }
 
     // @ModelAttribute("loginModel")Login loginModel
     // Списано отсюда https://spring.io/guides/gs/handling-form-submission/
     @PostMapping(MapInOutConstants.ADD_IN_MAP)
     public String addNewGenreByForm(
-            @ModelAttribute(ModelAttributeNameConstants.INPUT_GENRE_TRANS) GenreTrans inputGenre,
+            @ModelAttribute(ModelAttributeNameConstants.INPUT_GENRE_TRANS) GenreTrans inputGenreTrans,
                     Model model
     )
     {
-        service.save(inputGenre, model);
+        return save(inputGenreTrans, model);
+    }
+
+    private String save(@ModelAttribute(ModelAttributeNameConstants.INPUT_GENRE_TRANS) GenreTrans inputGenreTrans, Model model) {
+        service.save(inputGenreTrans, model);
         service.putGenresListToModel(model);
         return MapInOutConstants.GENRE_OUT_MAP;
+    }
+
+    @PostMapping(MapInOutConstants.EDIT_IN_MAP)
+    public String editNewGenreByForm(
+            @ModelAttribute(ModelAttributeNameConstants.INPUT_GENRE_TRANS) GenreTrans inputGenreTrans,
+            Model model
+    )
+    {
+        return save(inputGenreTrans, model);
+//        service.save(inputGenreTrans, model);
+//        service.putGenresListToModel(model);
+//        return MapInOutConstants.GENRE_OUT_MAP;
     }
 
     @GetMapping(path= MapInOutConstants.ALL_IN_MAP)
