@@ -126,7 +126,8 @@
       <Comment>standard public schema</Comment>
       <StateNumber>352</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionTimestamp>2019-04-04.12:05:42.651</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2019-04-08.12:36:57.433</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1304</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -186,5 +187,202 @@
       <SchemaName>pg_catalog</SchemaName>
       <SchemaId>11</SchemaId>
     </extension>
+    <sequence id="30" parent="22" name="hibernate_sequence">
+      <ObjectId>16870</ObjectId>
+      <Owner>igor</Owner>
+      <StateNumber>1186</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>bigint</DataType>
+    </sequence>
+    <table id="31" parent="22" name="author">
+      <ObjectId>16905</ObjectId>
+      <Owner>igor</Owner>
+      <StateNumber>1302</StateNumber>
+    </table>
+    <table id="32" parent="22" name="book">
+      <ObjectId>16893</ObjectId>
+      <Owner>igor</Owner>
+      <StateNumber>1295</StateNumber>
+    </table>
+    <table id="33" parent="22" name="genre">
+      <ObjectId>16886</ObjectId>
+      <Owner>igor</Owner>
+      <StateNumber>1295</StateNumber>
+    </table>
+    <column id="34" parent="31" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1302</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="35" parent="31" name="biography">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>1302</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="36" parent="31" name="first_name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1302</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="37" parent="31" name="last_name">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1302</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="38" parent="31" name="middle_name">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1302</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="39" parent="31" name="year">
+      <Position>6</Position>
+      <DataType>timestamp|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1302</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <index id="40" parent="31" name="author_pkey">
+      <ObjectId>16911</ObjectId>
+      <StateNumber>1302</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="41" parent="31" name="ukjdys6j91x75qyc141h4s2rk7a">
+      <ObjectId>16913</ObjectId>
+      <StateNumber>1304</StateNumber>
+      <ColNames>first_name
+middle_name
+last_name
+year</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="42" parent="31" name="author_pkey">
+      <ObjectId>16912</ObjectId>
+      <StateNumber>1302</StateNumber>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>author_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="43" parent="31" name="ukjdys6j91x75qyc141h4s2rk7a">
+      <ObjectId>16914</ObjectId>
+      <StateNumber>1304</StateNumber>
+      <ColNames>first_name
+middle_name
+last_name
+year</ColNames>
+      <UnderlyingIndexName>ukjdys6j91x75qyc141h4s2rk7a</UnderlyingIndexName>
+    </key>
+    <column id="44" parent="32" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1292</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="45" parent="32" name="title">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1292</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="46" parent="32" name="year">
+      <Position>3</Position>
+      <DataType>timestamp|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1292</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="47" parent="32" name="genre_id">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1292</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="48" parent="32" name="book_pkey">
+      <ObjectId>16896</ObjectId>
+      <StateNumber>1292</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="49" parent="32" name="uka703tuivvhtt9vm1sk768lmm2">
+      <ObjectId>16898</ObjectId>
+      <StateNumber>1294</StateNumber>
+      <ColNames>title
+year</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="50" parent="32" name="book_pkey">
+      <ObjectId>16897</ObjectId>
+      <StateNumber>1292</StateNumber>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>book_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="51" parent="32" name="uka703tuivvhtt9vm1sk768lmm2">
+      <ObjectId>16899</ObjectId>
+      <StateNumber>1294</StateNumber>
+      <ColNames>title
+year</ColNames>
+      <UnderlyingIndexName>uka703tuivvhtt9vm1sk768lmm2</UnderlyingIndexName>
+    </key>
+    <foreign-key id="52" parent="32" name="fkm1t3yvw5i7olwdf32cwuul7ta">
+      <ObjectId>16900</ObjectId>
+      <StateNumber>1295</StateNumber>
+      <ColNames>genre_id</ColNames>
+      <RefTableId>16886</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>genre</RefTableName>
+      <RefKeyName>genre_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="53" parent="33" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1271</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="54" parent="33" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1271</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="55" parent="33" name="genre_pkey">
+      <ObjectId>16889</ObjectId>
+      <StateNumber>1271</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="56" parent="33" name="ukctffrbu4484ft8dlsa5vmqdka">
+      <ObjectId>16891</ObjectId>
+      <StateNumber>1273</StateNumber>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="57" parent="33" name="genre_pkey">
+      <ObjectId>16890</ObjectId>
+      <StateNumber>1271</StateNumber>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>genre_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="58" parent="33" name="ukctffrbu4484ft8dlsa5vmqdka">
+      <ObjectId>16892</ObjectId>
+      <StateNumber>1273</StateNumber>
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>ukctffrbu4484ft8dlsa5vmqdka</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>

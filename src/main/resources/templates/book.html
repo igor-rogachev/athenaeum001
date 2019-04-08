@@ -15,7 +15,7 @@
 <div>Новая книга</div>
 <form action="#" th:action="@{/book/add}" th:object="${inputBookTrans}" method="post">
     <p>Заглавие: <input type="text" th:field="*{title}" /></p>
-    <p>Год издание: <input type="date" th:field="*{year}" /></p>
+    <p>Дата издание: <input type="date" th:field="*{year}" /></p>
     <p>Жанр: <input type="text" th:field="*{genreIntIn}" /></p>
     <p><input type="submit" value="Ввести" /> <input type="reset" value="Отказаться" /></p>
 </form>
@@ -27,7 +27,7 @@
     <tr>
         <th> ID </th>
         <th> Заглавие </th>
-        <th> Год издание </th>
+        <th> Дата издание </th>
         <th> Жанр </th>
     </tr>
     </thead>

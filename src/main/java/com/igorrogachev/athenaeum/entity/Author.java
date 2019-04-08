@@ -35,7 +35,12 @@ public class Author {
     public Author() {
     }
 
-    public Author(@NotNull(message = ConstrainsErrorConstants.FIRST_NAME_MAY_NOT_BE_NULL) @NotEmpty(message = ConstrainsErrorConstants.FIRST_NAME_MAY_NOT_BE_EMPTY) String firstName, String middleName, String lastName, @NotNull(message = ConstrainsErrorConstants.YEAR_MAY_NOT_BE_NULL) Date year, String biography) {
+    public Author(@NotNull(message = ConstrainsErrorConstants.FIRST_NAME_MAY_NOT_BE_NULL)
+                  @NotEmpty(message = ConstrainsErrorConstants.FIRST_NAME_MAY_NOT_BE_EMPTY) String firstName,
+                  String middleName,
+                  String lastName,
+                  @NotNull(message = ConstrainsErrorConstants.YEAR_MAY_NOT_BE_NULL) Date year,
+                  String biography) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;

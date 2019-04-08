@@ -6,4 +6,6 @@ public class ModelAttributeNameConstants {
     public static final String BOOKS_TRANS_LIST = "booksTransList";
     public static final String INPUT_BOOK_TRANS = "inputBookTrans";
     public static final String SOME_EXCEPTION = "someException";
+    public static final String AUTHORS_TRANS_LIST = "authorsTransList";
+    public static final String INPUT_AUTHOR_TRANS = "inputAuthorTrans";
 }

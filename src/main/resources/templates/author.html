@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Author CRUD and LIST</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<div th:if="${someException != null}">
+    <p th:text="${someException}" />
+</div>
+
+<div>Новый автор</div>
+<form action="#" th:action="@{/author/add}" th:object="${inputAuthorTrans}" method="post">
+    <p>Имя: <input type="text" th:field="*{firstName}" /></p>
+    <p>Отчество: <input type="text" th:field="*{middleName}" /></p>
+    <p>Фамилия: <input type="text" th:field="*{lastName}" /></p>
+    <p>Дата рождения: <input type="date" th:field="*{year}" /></p>
+    <p>Биография: <input type="text" th:field="*{biography}" /></p>
+    <p><input type="submit" value="Ввести" /> <input type="reset" value="Отказаться" /></p>
+</form>
+
+<div>Список авторов</div>
+
+<table>
+    <thead>
+    <tr>
+        <th> ID </th>
+        <th> ФИО </th>
+        <th> Дата рождения </th>
+        <th> Биография </th>
+    </tr>
+    </thead>
+        <tbody>
+<tr th:if="${authorsTransList.isEmpty()}">
+    <td colspan="2"> Нет авторов для отображения </td>
+</tr>
+<tr th:each="theAuthorTrans : ${authorsTransList}">
+    <td><span th:text="${theAuthorTrans.id}"> ID </span></td>
+    <td><span th:text="${theAuthorTrans.getFullName()}"> ФИО </span></td>
+    <td><span th:text="${theAuthorTrans.getYearForDisplay()}"> Дата рождения </span></td>
+    <td><span th:text="${theAuthorTrans.biography}"> Биография </span></td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>

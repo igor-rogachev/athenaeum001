@@ -43,8 +43,8 @@ public class BookService {
 
     public void createBooksList(Model model) {
         Iterable<Book> books = bookDao.findAll();
-        List<Book> booksList = new ArrayList();
-        books.forEach(booksList::add);
+        // List<Book> booksList = new ArrayList();
+        // books.forEach(booksList::add);
         List<BookTrans> booksTransList = new ArrayList();
         // пока тупо через for, переделать через лябда или через потоки
         for (Book b: books) {

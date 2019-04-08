@@ -53,8 +53,8 @@ public class GenreService {
     // рутина создания списка жанров для отображения
     public void putGenresListToModel(Model model) {
         Iterable<Genre> genres = genreDao.findAll();
-        List<Genre> genresList = new ArrayList();
-        genres.forEach(genresList::add);
+        // List<Genre> genresList = new ArrayList();
+        // genres.forEach(genresList::add);
         List<GenreTrans> genresTransList = new ArrayList();
         // пока тупо через for, переделать через лябда или через потоки
         for (Genre g: genres) {

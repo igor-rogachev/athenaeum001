@@ -3,6 +3,7 @@ package com.igorrogachev.athenaeum.businessDomain;
 import com.igorrogachev.athenaeum.utils.constants.FormatConstants;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class AuthorTrans {
@@ -10,7 +11,6 @@ public class AuthorTrans {
     private String firstName;
     private String middleName;
     private String lastName;
-    private String fullNameOut;
 
     @DateTimeFormat(pattern = FormatConstants.COMMON_DATE_FORMAT_YYYY_MM_DD)
     private Date year;
@@ -21,7 +21,6 @@ public class AuthorTrans {
         firstName = new String();
         middleName = new String();
         lastName = new String();
-        fullNameOut = new String();
         year = new Date();
         biography = new String();
     }
@@ -33,7 +32,23 @@ public class AuthorTrans {
         this.lastName = lastName;
         this.year = year;
         this.biography = biography;
-        fullNameOut = new StringBuffer(firstName).append(" ").append(middleName).append(" ").append(lastName).toString();
+    }
+
+    public AuthorTrans(String firstName, String middleName, String lastName, Date year, String biography) {
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.year = year;
+        this.biography = biography;
+    }
+
+    public String getFullName() {
+        String fullNameOut = new StringBuffer(firstName).append(" ").append(middleName).append(" ").append(lastName).toString();
+        return fullNameOut;
+    }
+
+    public String getYearForDisplay() {
+        return new SimpleDateFormat(FormatConstants.COMMON_DATE_FORMAT_YYYY_MM_DD).format(year);
     }
 
     public long getId() {
@@ -64,14 +79,6 @@ public class AuthorTrans {
         this.lastName = lastName;
     }
 
-    public String getFullNameOut() {
-        return fullNameOut;
-    }
-
-    public void setFullNameOut(String fullNameOut) {
-        this.fullNameOut = fullNameOut;
-    }
-
     public Date getYear() {
         return year;
     }
@@ -87,4 +94,8 @@ public class AuthorTrans {
     public void setBiography(String biography) {
         this.biography = biography;
     }
+
+//        <p>Отчество: <input type="text" th:field="*{middleName}" /></p>
+
+
 }
