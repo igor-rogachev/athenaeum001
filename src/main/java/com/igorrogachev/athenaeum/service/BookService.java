@@ -32,11 +32,11 @@ public class BookService {
 
 
     public void save(BookTrans bookTrans, Model model) {
-        // create Book object
-        Genre genre = genreDao.findById(bookTrans.getGenreIntIn()).get();
-        Book book = new Book(bookTrans.getTitle(), bookTrans.getYear(), genre);
-        // save book object by DAO
         try {
+            // create Book object
+            Genre genre = genreDao.findById(bookTrans.getGenreIntIn()).get();
+            Book book = new Book(bookTrans.getTitle(), bookTrans.getYear(), genre);
+            // save book object by DAO
             bookDao.save(book);
         } catch (Exception e) {
             String errDescriptionPrefix = ErrorPrefixConstants.ADD_NEW_BOOK_ERROR;
