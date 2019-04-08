@@ -8,4 +8,6 @@ public class ConstrainsErrorConstants {
     public static final String TEMP_GENRE_ID_INPUT_MAY_NOT_BE_EMPTY = "TempGenreIdInput may not be empty";
     public static final String NAME_MAY_NOT_BE_NULL = "Name may not be null";
     public static final String NAME_MAY_NOT_BE_EMPTY = "Name may not be empty";
+    public static final String FIRST_NAME_MAY_NOT_BE_NULL = "First name may not be null";
+    public static final String FIRST_NAME_MAY_NOT_BE_EMPTY = "First name may not be empty";
 }

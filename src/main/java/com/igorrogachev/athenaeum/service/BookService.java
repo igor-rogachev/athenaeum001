@@ -1,7 +1,6 @@
 package com.igorrogachev.athenaeum.service;
 
 import com.igorrogachev.athenaeum.businessDomain.BookTrans;
-import com.igorrogachev.athenaeum.businessDomain.GenreTrans;
 import com.igorrogachev.athenaeum.dao.BookDao;
 import com.igorrogachev.athenaeum.dao.GenreDao;
 import com.igorrogachev.athenaeum.entity.Book;
@@ -16,7 +15,6 @@ import org.springframework.ui.Model;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -29,7 +27,6 @@ public class BookService {
         this.bookDao = bookDao;
         this.genreDao = genreDao;
     }
-
 
     public void save(BookTrans bookTrans, Model model) {
         try {

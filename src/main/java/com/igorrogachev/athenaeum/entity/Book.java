@@ -14,7 +14,7 @@ package com.igorrogachev.athenaeum.entity;
 @Table(uniqueConstraints={@UniqueConstraint(columnNames={ColumnNameConstants.TITLE, ColumnNameConstants.YEAR})})
 public class Book {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @NotNull(message = ConstrainsErrorConstants.TITLE_MAY_NOT_BE_NULL)
